@@ -13,6 +13,7 @@ from telegram.ext import (
 )
 import configs.config
 
+##############################################################################
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
@@ -25,6 +26,7 @@ CHAT_TIMEOUT=120
 ADMIN_chanell_id = configs.config.factyar_admins_channel_id
 BOT_TOKEN =configs.config.telegram_bot_token
 
+##########################################################################
 def start(update: Update, _: CallbackContext) -> int:
     update.message.reply_text(
         "به ربات فکت‌یار خوش آمدید .\n"
@@ -40,6 +42,8 @@ def start(update: Update, _: CallbackContext) -> int:
     return CHOOSING
 
 
+##########################################################################
+
 def received_information(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
         "خبر شما برای کارشناسان راستی‌آزمایی ارسال شد." +
@@ -54,6 +58,7 @@ def received_information(update: Update, context: CallbackContext) -> int:
                             message_id=update.message.message_id)
     return CHOOSING
 
+##########################################################################
 
 def get_addresses(update: Update, context: CallbackContext) -> int:
     update.message.reply_text( 'سایت  http://factyar.com/'
@@ -65,6 +70,7 @@ def get_addresses(update: Update, context: CallbackContext) -> int:
                              #  ,reply_markup= markup
                   )
     return CHOOSING
+##########################################################################
 
 def how_to_use(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
@@ -77,6 +83,7 @@ def how_to_use(update: Update, context: CallbackContext) -> int:
                                 )
 
     return CHOOSING
+##########################################################################
 
 def about_us(update: Update, context: CallbackContext) -> int:
     update.message.reply_text(
@@ -87,6 +94,7 @@ def about_us(update: Update, context: CallbackContext) -> int:
                               )
 
     return CHOOSING
+##########################################################################
 
 def not_standard_info(update: Update, context: CallbackContext) -> int:
     update.message.reply_text('پیامی که ارسال کردید فرمت مناسبی ندارد' ,
@@ -94,6 +102,7 @@ def not_standard_info(update: Update, context: CallbackContext) -> int:
                               )
     return CHOOSING
 
+##########################################################################
 
 def start_telegram_bot() -> None:
     # Create the Updater and pass it your bot's token.
